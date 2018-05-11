@@ -15,7 +15,6 @@ app.all('*', function(req, res, next) {
 	res.header("Content-Type", "text/html;charset=utf-8");
 	next();
 });
-
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 

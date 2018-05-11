@@ -11,7 +11,6 @@ router.get('/a', function(req, res, next) {
 	connectSql(sql, function(err, result, next) {
 		let json = { data: result, error: 0, errmsg: '查询成功', }
 		if (err) {
-			console.log('失败:', err.message);
 			json.error = 99999;
 			if (!req.query.id.String) {
 				json.errmsg = '请输入正确的id'
