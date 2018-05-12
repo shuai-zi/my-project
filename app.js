@@ -1,11 +1,9 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var app = express();
-
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const app = express();
 //设置跨域访问
 app.all('*', function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
@@ -29,7 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// require('./routes/index')
+app.use('/', require(__dirname + '/routes/home/index.js'))
+
 app.use('/users', require(__dirname + '/routes/users/index.js'))
 
 // catch 404 and forward to error handler
